@@ -5,11 +5,12 @@
     <modules>
         <module>xuecheng-plus-base</module>
         <module>xuecheng-plus-content</module>
+        <module>xuecheng-plus-reverse</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1</version>
+        <version>2.3.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xuecheng</groupId>
