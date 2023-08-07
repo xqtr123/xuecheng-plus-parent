@@ -1,7 +1,7 @@
 package com.xuecheng.service;
 
-import com.xuecheng.domain.Teachplan;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xuecheng.dao.Teachplan;
 
 /**
  * <p>

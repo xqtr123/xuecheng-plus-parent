@@ -27,8 +27,8 @@ public class CodeGenerate {
         globalConfig.setOpen(false);    // 设置生成完毕后是否打开生成代码所在的目录
         globalConfig.setAuthor("RShL");    // 设置作者
         globalConfig.setFileOverride(true);     // 设置是否覆盖原始生成的文件
-        globalConfig.setMapperName("%sDao");    // 设置数据层接口名，%s为占位符，指代模块名称
-        globalConfig.setIdType(IdType.ASSIGN_ID);   // 设置Id生成策略
+        globalConfig.setMapperName("%sMappper");    // 设置数据层接口名，%s为占位符，指代模块名称
+        globalConfig.setIdType(IdType.AUTO);   // 设置Id生成策略
         autoGenerator.setGlobalConfig(globalConfig);
 
         //设置包名相关配置
@@ -40,7 +40,7 @@ public class CodeGenerate {
 
         //策略设置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setInclude("teachplan");  // 设置当前参与生成的表名，参数为可变参数
+        strategyConfig.setInclude("course_category");  // 设置当前参与生成的表名，参数为可变参数
 //        strategyConfig.setTablePrefix("tb_");  // 设置数据库表的前缀名称，模块名 = 数据库表名 - 前缀名  例如： User = tb_user - tb_
         strategyConfig.setRestControllerStyle(true);    // 设置是否启用Rest风格
         strategyConfig.setVersionFieldName("version");  // 设置乐观锁字段名

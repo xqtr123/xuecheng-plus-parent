@@ -6,6 +6,7 @@
         <module>xuecheng-plus-base</module>
         <module>xuecheng-plus-content</module>
         <module>xuecheng-plus-reverse</module>
+        <module>xuecheng-plus-system</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

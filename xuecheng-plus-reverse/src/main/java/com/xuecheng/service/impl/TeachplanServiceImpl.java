@@ -1,9 +1,9 @@
 package com.xuecheng.service.impl;
 
-import com.xuecheng.domain.Teachplan;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xuecheng.dao.Teachplan;
 import com.xuecheng.dao.TeachplanDao;
 import com.xuecheng.service.ITeachplanService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

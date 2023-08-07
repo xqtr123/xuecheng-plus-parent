@@ -1,6 +1,6 @@
 package com.xuecheng.dao;
 
-import com.xuecheng.domain.Teachplan;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
