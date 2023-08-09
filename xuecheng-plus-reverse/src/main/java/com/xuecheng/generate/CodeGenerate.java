@@ -40,7 +40,7 @@ public class CodeGenerate {
 
         //策略设置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setInclude("course_category");  // 设置当前参与生成的表名，参数为可变参数
+        strategyConfig.setInclude("teachplan_media");  // 设置当前参与生成的表名，参数为可变参数
 //        strategyConfig.setTablePrefix("tb_");  // 设置数据库表的前缀名称，模块名 = 数据库表名 - 前缀名  例如： User = tb_user - tb_
         strategyConfig.setRestControllerStyle(true);    // 设置是否启用Rest风格
         strategyConfig.setVersionFieldName("version");  // 设置乐观锁字段名

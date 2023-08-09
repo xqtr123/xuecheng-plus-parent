@@ -17,7 +17,7 @@ import java.util.List;
  * @since 2023-08-07
  */
 @Mapper
-@MapperScan("com.xuecheng.content.mapper")
+@MapperScan("com.xuecheng.content.mapper.xml")
 public interface CourseCategoryMapper extends BaseMapper<CourseCategoryPO> {
 
     List<CourseCategoryDto> selectTreeNodes();

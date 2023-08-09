@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 课程分类 前端控制器
+ *  前端控制器
  * </p>
  *
  * @author RShL
- * @since 2023-08-07
+ * @since 2023-08-09
  */
 @RestController
-@RequestMapping("/course_category")
-public class Course_categoryController {
+@RequestMapping("/teachplan_media")
+public class Teachplan_mediaController {
 
 }
 

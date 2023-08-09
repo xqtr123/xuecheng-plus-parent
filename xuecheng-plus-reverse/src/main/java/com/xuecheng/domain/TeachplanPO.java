@@ -1,8 +1,7 @@
-package com.xuecheng.content.model.po;
+package com.xuecheng.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -15,11 +14,10 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author RShL
- * @since 2023-08-03
+ * @since 2023-08-09
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("teachplan")
 public class TeachplanPO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,17 +43,17 @@ public class TeachplanPO implements Serializable {
     /**
      * 课程类型:1视频、2文档
      */
-    private String mediaType;
+    private String media_type;
 
     /**
      * 开始直播时间
      */
-    private LocalDateTime startTime;
+    private LocalDateTime start_time;
 
     /**
      * 直播结束时间
      */
-    private LocalDateTime endTime;
+    private LocalDateTime end_time;
 
     /**
      * 章节及课程时介绍
@@ -75,12 +73,12 @@ public class TeachplanPO implements Serializable {
     /**
      * 课程标识
      */
-    private Long courseId;
+    private Long course_id;
 
     /**
      * 课程发布标识
      */
-    private Long coursePubId;
+    private Long course_pub_id;
 
     /**
      * 状态（1正常  0删除）

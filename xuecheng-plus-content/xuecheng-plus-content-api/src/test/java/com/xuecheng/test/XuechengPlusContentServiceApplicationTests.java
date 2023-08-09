@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.mapper.CourseBaseMapper;
+import com.xuecheng.content.mapper.TeachplanMapper;
 import com.xuecheng.content.model.dto.CourseCategoryDto;
 import com.xuecheng.content.model.dto.QueryCourseParamDto;
+import com.xuecheng.content.model.dto.TeachplanDto;
 import com.xuecheng.content.model.po.CourseBasePO;
 import com.xuecheng.content.service.ICourseCategoryService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,11 +31,20 @@ public class XuechengPlusContentServiceApplicationTests {
     @Autowired
     ICourseCategoryService iCourseCategoryService;
 
+    @Autowired
+    TeachplanMapper teachplanMapper;
+
     @Test
     void contextLoads(){
         CourseBasePO courseBasePO = courseBaseMapper.selectById(22);
         log.info("查询到数据：{}", courseBasePO);
         Assertions.assertNotNull(courseBasePO);
+    }
+
+    @Test
+    void teachplanTest(){
+        List<TeachplanDto> teachplanDtos = teachplanMapper.selectTreeNodes(25L);
+//        System.out.println();
     }
 
     @Test
