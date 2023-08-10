@@ -28,6 +28,18 @@ public class TeachplanController {
     @ApiOperation("课程计划创建或修改")
     @PostMapping("/teachplan")
     public void saveTeachplan(@RequestBody TeachplanPO teachplanDto) {
+        iTeachplanService.saveTeachplan(teachplanDto);
+    }
 
+    @ApiOperation("课程计划删除")
+    @DeleteMapping("/content/teachplan/{teachplanId}")
+    public void deleteTeachplan(@PathVariable Long teachplanId) {
+        iTeachplanService.deleteTeachplan(teachplanId);
+    }
+
+    @ApiOperation("课程计划排序")
+    @PostMapping("/teachplan/{moveType}/{teachplanId}")
+    public void orderByTeachplan(@PathVariable String moveType, @PathVariable Long teachplanId) {
+        iTeachplanService.orderByTeachplan(moveType, teachplanId);
     }
 }

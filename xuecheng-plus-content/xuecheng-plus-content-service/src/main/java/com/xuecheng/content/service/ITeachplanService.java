@@ -19,4 +19,8 @@ public interface ITeachplanService extends IService<TeachplanPO> {
     List<TeachplanDto> getTreeNodes(Long courseId);
 
     void saveTeachplan(TeachplanPO teachplan);
+
+    void deleteTeachplan(Long teachplanId);
+
+    void orderByTeachplan(String moveType, Long teachplanId);
 }
