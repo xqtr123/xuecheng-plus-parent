@@ -2,6 +2,7 @@ package com.xuecheng.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
+@TableName("course_teacher")
 public class CourseTeacherPO implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,12 +33,12 @@ public class CourseTeacherPO implements Serializable {
     /**
      * 课程标识
      */
-    private Long course_id;
+    private Long courseId;
 
     /**
      * 教师标识
      */
-    private String teacher_name;
+    private String teacherName;
 
     /**
      * 教师职位
@@ -56,7 +58,7 @@ public class CourseTeacherPO implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDateTime create_date;
+    private LocalDateTime createDate;
 
 
 }

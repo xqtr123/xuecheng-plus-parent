@@ -46,14 +46,14 @@ public class TeachplanServiceImpl extends ServiceImpl<TeachplanMapper, Teachplan
         if(id == null){
             TeachplanPO teachplanPO = new TeachplanPO();
             BeanUtils.copyProperties(teachplan, teachplanPO);
-            teachplanPO.setCreate_date(LocalDateTime.now());
+            teachplanPO.setCreateDate(LocalDateTime.now());
             teachplanPO.setOrderby(getTeachplanCount(teachplanPO.getCourseId(), teachplanPO.getParentid()));
             int insert = teachplanMapper.insert(teachplanPO);
             if (insert <= 0) XueChengPlusException.cast("新增失败");
         }else{
             TeachplanPO teachplanPO = teachplanMapper.selectById(id);
             BeanUtils.copyProperties(teachplan, teachplanPO);
-            teachplanPO.setChange_date(LocalDateTime.now());
+            teachplanPO.setChangeDate(LocalDateTime.now());
             int i = teachplanMapper.updateById(teachplanPO);
             if(i <= 0) XueChengPlusException.cast("修改失败");
         }

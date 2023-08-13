@@ -73,7 +73,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
             XueChengPlusException.cast("只允许删除本机构的课程");
         // 删除课程教师信息
         LambdaQueryWrapper<CourseTeacherPO> teacherLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        teacherLambdaQueryWrapper.eq(CourseTeacherPO::getCourse_id, courseId);
+        teacherLambdaQueryWrapper.eq(CourseTeacherPO::getCourseId, courseId);
         courseTeacherMapper.delete(teacherLambdaQueryWrapper);
         // 删除课程计划
         LambdaQueryWrapper<TeachplanPO> teachplanLambdaQueryWrapper = new LambdaQueryWrapper<>();

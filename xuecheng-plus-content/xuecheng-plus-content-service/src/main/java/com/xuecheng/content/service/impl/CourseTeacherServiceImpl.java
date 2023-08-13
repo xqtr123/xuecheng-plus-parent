@@ -31,7 +31,7 @@ public class CourseTeacherServiceImpl extends ServiceImpl<CourseTeacherMapper, C
     @Override
     public List<CourseTeacherPO> queryCourseTeacher(Long courseId) {
         LambdaQueryWrapper<CourseTeacherPO> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(CourseTeacherPO::getCourse_id, courseId);
+        queryWrapper.eq(CourseTeacherPO::getCourseId, courseId);
         return courseTeacherMapper.selectList(queryWrapper);
     }
 
@@ -43,7 +43,7 @@ public class CourseTeacherServiceImpl extends ServiceImpl<CourseTeacherMapper, C
             // id为null，新增教师
             CourseTeacherPO teacher = new CourseTeacherPO();
             BeanUtils.copyProperties(courseTeacher, teacher);
-            teacher.setCreate_date(LocalDateTime.now());
+            teacher.setCreateDate(LocalDateTime.now());
             int flag = courseTeacherMapper.insert(teacher);
             if (flag <= 0)
                 XueChengPlusException.cast("新增失败");
@@ -63,7 +63,7 @@ public class CourseTeacherServiceImpl extends ServiceImpl<CourseTeacherMapper, C
     public void deleteCourseTeacher(Long courseId, Long teacherId) {
         LambdaQueryWrapper<CourseTeacherPO> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(CourseTeacherPO::getId, teacherId);
-        queryWrapper.eq(CourseTeacherPO::getCourse_id, courseId);
+        queryWrapper.eq(CourseTeacherPO::getCourseId, courseId);
         int flag = courseTeacherMapper.delete(queryWrapper);
         if (flag < 0)
             XueChengPlusException.cast("删除失败");

@@ -11,8 +11,8 @@ import java.util.List;
 @Data
 public class TeachplanDto extends TeachplanPO {
 
-    private TeachplanMediaPO teachplanMediaPO;
+    private TeachplanMediaPO teachplanMedia;
 
-    private List<TeachplanDto> teachplanTreeNodes;
+    private List<TeachplanDto> teachPlanTreeNodes;
 
 }

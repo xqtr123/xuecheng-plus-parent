@@ -90,17 +90,17 @@ public class TeachplanPO implements Serializable {
     /**
      * 是否支持试学或预览（试看）
      */
-    private String is_preview;
+    private String isPreview;
 
     /**
      * 创建时间
      */
-    private LocalDateTime create_date;
+    private LocalDateTime createDate;
 
     /**
      * 修改时间
      */
-    private LocalDateTime change_date;
+    private LocalDateTime changeDate;
 
 
 }

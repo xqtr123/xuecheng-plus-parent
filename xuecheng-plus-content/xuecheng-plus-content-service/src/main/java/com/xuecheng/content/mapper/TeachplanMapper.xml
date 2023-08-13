@@ -16,7 +16,7 @@
         <result column="p_courseId" property="courseId"></result>
         <result column="p_coursePubId" property="coursePubId"></result>
         <!-- 一级数据下可能包含多个二级数据 -->
-        <collection property="teachplanTreeNodes" ofType="com.xuecheng.content.model.dto.TeachplanDto" javaType="list">
+        <collection property="teachPlanTreeNodes" ofType="com.xuecheng.content.model.dto.TeachplanDto" javaType="list">
             <!--二级数据映射-->
             <id column="c_id" property="id"></id>
             <result column="c_pname" property="pname"></result>
@@ -29,7 +29,7 @@
             <result column="c_courseId" property="courseId"></result>
             <result column="c_coursePubId" property="coursePubId"></result>
             <!-- 媒资信息映射 -->
-            <association property="teachplanMediaPO" javaType="com.xuecheng.content.model.po.TeachplanMediaPO">
+            <association property="teachplanMedia" javaType="com.xuecheng.content.model.po.TeachplanMediaPO">
                 <result column="teachplanMeidaId" property="id"></result>
                 <result column="mediaFilename" property="mediaFilename"></result>
                 <result column="mediaId" property="mediaId"></result>

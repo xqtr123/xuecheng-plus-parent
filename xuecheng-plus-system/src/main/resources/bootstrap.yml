@@ -1,16 +1,15 @@
-# 微服务配置
 spring:
   application:
-    name: content-api
+    name: xuecheng-system
   cloud:
     nacos:
       server-addr: 43.136.50.242:8848
       discovery:
-        namespace: ${spring.profiles.active}
+        namespace: dev
         group: xuecheng-plus-project
       config:
         namespace: ${spring.profiles.active}
-        group: xuecheng-plus-project
+        group: xuecheng-plus-system
         file-extension: yaml
         refresh-enabled: true
         shared-configs:
@@ -20,9 +19,3 @@ spring:
           - data-id: swagger-${spring.profiles.active}.yaml
             group: xuecheng-plus-common
             refresh: true
-        extension-configs:
-          - data-id: content-service-${spring.profiles.active}.yaml
-            group: xuecheng-plus-content
-            refresh: true
-  profiles:
-    active: dev
