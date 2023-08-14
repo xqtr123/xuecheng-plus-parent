@@ -1,22 +1,19 @@
 spring:
   application:
-    name: xuecheng-system
+    name: gateway
   cloud:
     nacos:
       server-addr: 43.136.50.242:8848
       discovery:
-        namespace: dev
+        namespace: ${spring.profiles.active}
         group: xuecheng-plus-project
       config:
         namespace: ${spring.profiles.active}
-        group: xuecheng-plus-system
+        group: xuecheng-plus-gateway
         file-extension: yaml
         refresh-enabled: true
         shared-configs:
           - data-id: logging-${spring.profiles.active}.yaml
-            group: xuecheng-plus-common
-            refresh: true
-          - data-id: swagger-${spring.profiles.active}.yaml
             group: xuecheng-plus-common
             refresh: true
   profiles:
