@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>xuecheng-plus-media</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>xuecheng-plus-media-api</module>
+        <module>xuecheng-plus-media-model</module>
+        <module>xuecheng-plus-media-service</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

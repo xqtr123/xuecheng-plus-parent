@@ -1,5 +1,6 @@
 package com.xuecheng.controller;
 
+import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
 import com.xuecheng.content.model.po.TeachplanPO;
 import com.xuecheng.content.service.ITeachplanService;
@@ -41,5 +42,17 @@ public class TeachplanController {
     @PostMapping("/teachplan/{moveType}/{teachplanId}")
     public void orderByTeachplan(@PathVariable String moveType, @PathVariable Long teachplanId) {
         iTeachplanService.orderByTeachplan(moveType, teachplanId);
+    }
+
+    @ApiOperation("课程计划与媒资信息绑定")
+    @PostMapping("/teachplan/association/media")
+    public void associationMedia(@RequestBody BindTeachplanMediaDto bindTeachplanMediaDto) {
+        iTeachplanService.associationMedia(bindTeachplanMediaDto);
+    }
+
+    @ApiOperation("课程计划解除媒资信息绑定")
+    @DeleteMapping("/teachplan/association/media/{teachPlanId}/{mediaId}")
+    public void unassociationMedia(@PathVariable Long teachPlanId, @PathVariable Long mediaId) {
+        iTeachplanService.unassociationMedia(teachPlanId, mediaId);
     }
 }

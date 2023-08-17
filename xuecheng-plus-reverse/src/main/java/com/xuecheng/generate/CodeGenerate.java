@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 public class CodeGenerate {
 
@@ -16,7 +17,7 @@ public class CodeGenerate {
         // 数据库配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");
-        dataSourceConfig.setUrl("jdbc:mysql://43.136.50.242:3306/xc_content?serverTimezone=UTC");
+        dataSourceConfig.setUrl("jdbc:mysql://43.136.50.242:3306/xc_media?serverTimezone=UTC");
         dataSourceConfig.setUsername("admin");
         dataSourceConfig.setPassword("Rsl,990905");
         autoGenerator.setDataSource(dataSourceConfig);
@@ -40,12 +41,14 @@ public class CodeGenerate {
 
         //策略设置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setInclude("course_teacher");  // 设置当前参与生成的表名，参数为可变参数
+        strategyConfig.setInclude("media_process_history");  // 设置当前参与生成的表名，参数为可变参数
 //        strategyConfig.setTablePrefix("tb_");  // 设置数据库表的前缀名称，模块名 = 数据库表名 - 前缀名  例如： User = tb_user - tb_
         strategyConfig.setRestControllerStyle(true);    // 设置是否启用Rest风格
         strategyConfig.setVersionFieldName("version");  // 设置乐观锁字段名
         strategyConfig.setLogicDeleteFieldName("deleted");  // 设置逻辑删除字段名
         strategyConfig.setEntityLombokModel(true);  // 设置是否启用lombok
+        strategyConfig.setNaming(NamingStrategy.underline_to_camel);
+        strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
         autoGenerator.setStrategy(strategyConfig);
         //2.执行生成操作
         autoGenerator.execute();

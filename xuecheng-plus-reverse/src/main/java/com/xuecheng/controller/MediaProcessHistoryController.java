@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
- * 课程-教师关系表 前端控制器
+ *  前端控制器
  * </p>
  *
  * @author RShL
- * @since 2023-08-10
+ * @since 2023-08-16
  */
 @RestController
-@RequestMapping("/course_teacher")
-public class Course_teacherController {
+@RequestMapping("/mediaProcessHistory")
+public class MediaProcessHistoryController {
 
 }
 

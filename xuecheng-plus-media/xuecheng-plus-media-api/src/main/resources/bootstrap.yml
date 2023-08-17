@@ -1,7 +1,7 @@
-# 微服务配置
+#微服务配置
 spring:
   application:
-    name: content-api
+    name: media-api
   cloud:
     nacos:
       server-addr: 43.136.50.242:8848
@@ -10,22 +10,19 @@ spring:
         group: xuecheng-plus-project
       config:
         namespace: ${spring.profiles.active}
-        group: xuecheng-plus-content
+        group: xuecheng-plus-media
         file-extension: yaml
         refresh-enabled: true
-        shared-configs:
-          - data-id: logging-${spring.profiles.active}.yaml
-            group: xuecheng-plus-common
+        extension-configs:
+          - data-id: media-service-${spring.profiles.active}.yaml
+            group: xuecheng-plus-media
             refresh: true
+        shared-configs:
           - data-id: swagger-${spring.profiles.active}.yaml
             group: xuecheng-plus-common
             refresh: true
-          - data-id: freemarker-config-${spring.profiles.active}.yaml
-             group: xuecheng-plus-common
-             refresh: true
-        extension-configs:
-          - data-id: content-service-${spring.profiles.active}.yaml
-            group: xuecheng-plus-content
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: xuecheng-plus-common
             refresh: true
   profiles:
     active: dev

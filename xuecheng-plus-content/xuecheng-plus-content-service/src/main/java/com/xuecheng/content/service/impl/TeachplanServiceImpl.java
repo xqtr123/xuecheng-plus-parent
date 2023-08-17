@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xuecheng.base.exception.XueChengPlusException;
 import com.xuecheng.content.mapper.TeachplanMapper;
 import com.xuecheng.content.mapper.TeachplanMediaMapper;
+import com.xuecheng.content.model.dto.BindTeachplanMediaDto;
 import com.xuecheng.content.model.dto.TeachplanDto;
 import com.xuecheng.content.model.po.TeachplanMediaPO;
 import com.xuecheng.content.model.po.TeachplanPO;
@@ -128,6 +129,39 @@ public class TeachplanServiceImpl extends ServiceImpl<TeachplanMapper, Teachplan
                 exchangeOrderby(teachplanPO, tmp);
             }
         }
+    }
+
+    @Override
+    public void associationMedia(BindTeachplanMediaDto bindTeachplanMediaDto) {
+        Long teachplanId = bindTeachplanMediaDto.getTeachplanId();
+        // 先根据请求参数查询出对应的教学计划teachplan
+        TeachplanPO teachplan = teachplanMapper.selectById(teachplanId);
+        if (teachplan == null) {
+            XueChengPlusException.cast("教学计划不存在");
+        }
+        // 获取教学计划的层级，只有第二层级允许绑定媒资信息（第二层级为小节，第一层级为章节）
+        Integer grade = teachplan.getGrade();
+        if (grade != 2) {
+            XueChengPlusException.cast("只有小节允许绑定媒资信息");
+        }
+        // 绑定媒资，如果之前已经绑定过了媒资，再次绑定时为更新（例如该小节已经绑定了 星际牛仔.avi，现在改绑为 胶水.avi，其实现方式为先删再增）
+        LambdaQueryWrapper<TeachplanMediaPO> queryWrapper = new LambdaQueryWrapper<TeachplanMediaPO>().eq(TeachplanMediaPO::getTeachplanId, teachplanId);
+        teachplanMediaMapper.delete(queryWrapper);
+        TeachplanMediaPO teachplanMedia = new TeachplanMediaPO();
+        teachplanMedia.setTeachplanId(bindTeachplanMediaDto.getTeachplanId());
+        teachplanMedia.setMediaFilename(bindTeachplanMediaDto.getFileName());
+        teachplanMedia.setMediaId(bindTeachplanMediaDto.getMediaId());
+        teachplanMedia.setCourseId(teachplan.getCourseId());
+        teachplanMedia.setCreateDate(LocalDateTime.now());
+        teachplanMediaMapper.insert(teachplanMedia);
+    }
+
+    @Override
+    public void unassociationMedia(Long teachPlanId, Long mediaId) {
+        LambdaQueryWrapper<TeachplanMediaPO> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(TeachplanMediaPO::getTeachplanId, teachPlanId)
+                .eq(TeachplanMediaPO::getMediaId, mediaId);
+        teachplanMediaMapper.delete(queryWrapper);
     }
 
     private void exchangeOrderby(TeachplanPO teachplanPO, TeachplanPO tmp){

@@ -50,17 +50,17 @@ public class TeachplanMediaPO implements Serializable {
      */
     private String mediaFilename;
 
-    private LocalDateTime create_date;
+    private LocalDateTime createDate;
 
     /**
      * 创建人
      */
-    private String create_people;
+    private String createPeople;
 
     /**
      * 修改人
      */
-    private String change_people;
+    private String changePeople;
 
 
 }
